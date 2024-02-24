@@ -15,7 +15,7 @@
     <section class="bg-blue-900 text-white py-20">
         <div class="container mx-auto px-4">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Welcome to My Website</h1>
-            <p class="text-lg md:text-xl mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="text-lg md:text-xl mb-8">Welcome to your essential companion for mastering lambda calculus and DrRacket programming, designed especially for first-year computer science students. Our innovative learning resource harnesses the power of AI to guide you through the fundamental concepts with ease and clarity.</p>
             <a href="#features" class="bg-white text-blue-900 font-bold py-2 px-6 rounded-full uppercase tracking-wide shadow-lg hover:bg-gray-100 hover:text-blue-900 transition duration-300">Learn More</a>
         </div>
     </section>
