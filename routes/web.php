@@ -18,5 +18,6 @@ Route::get('/', function () {
     return view('landing');
 });
 
-// Route for the About page
-Route::get('/about', [AboutController::class, 'index']);
+Route::get('/about', function () {
+    return view('about');
+});
