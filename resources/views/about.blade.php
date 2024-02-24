@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="bg-blue-900 text-white py-20">
+    <section class="bg-blue-900 text-white py-10">
         <div class="container mx-auto px-4">
             <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">About Our Project</h1>
             <p class="text-lg md:text-xl mb-8">Diving into the future of education with AI-driven learning experiences for computer science fundamentals.</p>
@@ -12,41 +12,46 @@
     </section>
 
     <!-- Project Introduction -->
-    <section class="py-20 bg-gray-100">
+    <section class="py-10 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Project Introduction</h2>
-            <p class="text-gray-700 mb-4">Our project, developed as part of a fourth-year computer systems curriculum at the University of Limerick, aims to revolutionize how first-year computer science students learn complex subjects such as lambda calculus and DrRacket programming. By leveraging the capabilities of AI, including ChatGPT and two other fine-tuned chatbots, we offer an interactive and adaptive learning experience that caters to the individual needs of each student.</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">About the Project</h2>
+            <p class="text-gray-700 mb-4">Our fourth-year computer systems project aims to revolutionize the learning experience for first-year Computer Science students by leveraging advanced chatbot technology. Drawing inspiration from ChatGPT, our project introduces three distinct chatbots, each tailored to cater to the unique needs of novice learners. These chatbots include one based on GPT architecture and two fine-tuned variants, all equipped with the ability to engage students in discussions related to lambda calculus and DrRacket, fundamental topics in computer science education.</p>
+            <p class="text-gray-700 mb-4">Central to our project is the integration of a Large Language Model (LLM) like ChatGPT. By training the chatbots using data from the CS4221 module, we ensure their proficiency in addressing specific queries and concerns relevant to the curriculum. Furthermore, our chatbots boast the innovative capability to generate diagrams using LaTeX, employing packages such as "forest" or "tikz" to visually enhance the learning experience. Through rigorous training and development, our goal is to offer a diverse range of chatbots, each with its own distinct personality while maintaining a consistent base of knowledge and skills.</p>
         </div>
     </section>
 
     <!-- Goals and Objectives -->
-    <section class="py-20">
+    <section class="py-10 bg-gray-100">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Goals and Objectives</h2>
-            <p class="text-gray-700 mb-4">The primary goal of our project is to provide an accessible, engaging, and effective learning platform that supports students in mastering foundational computer science concepts. Through the integration of AI technologies, we aim to:</p>
+            <p class="text-gray-700 mb-4">The primary objective of our project is to provide first-year Computer Science students with an interactive and engaging learning tool that facilitates comprehension of complex concepts such as lambda calculus and DrRacket. To achieve this, we have set the following goals:</p>
             <ul class="list-disc pl-5 mb-4 text-gray-700">
-                <li>Enhance understanding of complex topics through interactive learning sessions.</li>
-                <li>Offer personalized feedback and guidance to improve student outcomes.</li>
-                <li>Promote self-paced learning, allowing students to explore topics at their own speed.</li>
-                <li>Bridge the gap between theoretical knowledge and practical application.</li>
+                <li><strong>Integration with Large Language Model (LLM):</strong> Successfully integrate ChatGPT or a similar LLM to serve as the backbone of our chatbot system, ensuring access to vast knowledge resources.</li>
+                <li><strong>Curriculum Alignment:</strong> Train the chatbots using data from the CS4221 module to ensure relevance and accuracy in addressing students' questions and challenges.</li>
+                <li><strong>Diagram Generation:</strong> Implement functionality for generating diagrams through LaTeX, utilizing packages like "forest" or "tikz" to enhance visual representation of concepts.</li>
+                <li><strong>Personality Diversity:</strong> Develop multiple chatbot personalities to cater to varying preferences and learning styles among students, while ensuring consistency in knowledge and skills across all variants.</li>
             </ul>
         </div>
     </section>
 
     <!-- About the Creator -->
-    <section class="bg-gray-100 py-20">
+    <section class="bg-gray-100 py-10">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">About the Creator</h2>
-            <p class="text-gray-700 mb-4">This project is the brainchild of a passionate fourth-year computer systems student at the University of Limerick, dedicated to leveraging technology to enhance educational resources. With a keen interest in AI and its potential to transform learning, the project seeks to make advanced computer science topics accessible and engaging for all students.</p>
+            <p class="text-gray-700 mb-4">I'm Carlos Cruz, a fourth-year Computer Systems student deeply passionate about enhancing educational experiences through technology. If you have any questions or feedback about our project, feel free to reach out to me:</p>
+            <ul class="list-disc pl-5 mb-4 text-gray-700">
+                <li><strong>School Email:</strong> 20275455@studentmail.ul.ie</li>
+                <li><strong>work Email:</strong> carlosmcruz7436@gmail.com</li>
+            </ul>
+            <p class="text-gray-700">Your inquiries are invaluable in refining and improving our chatbot system to better serve the needs of first-year Computer Science students. Thank you for your interest and support!</p>
         </div>
     </section>
 
     <!-- Call to Action -->
-    <section class="bg-blue-900 text-white py-20 text-center">
+    <section class="bg-blue-900 text-white py-1 text-center">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold mb-8">Join Us on This Journey</h2>
             <p class="mb-8">Are you ready to explore the future of learning? Whether you're a student eager to learn, a teacher interested in AI, or someone passionate about education technology, we'd love to hear from you.</p>
-            <a href="/contact" class="bg-white text-blue-900 font-bold py-3 px-8 rounded-full uppercase tracking-wide shadow-lg hover:bg-gray-100 hover:text-blue-900 transition duration-300">Get in Touch</a>
         </div>
     </section>
 @endsection
