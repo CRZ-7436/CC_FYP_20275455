@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\Log;
+
 class AuthController extends Controller
 {
     public function showRegistrationForm()
@@ -34,8 +36,9 @@ class AuthController extends Controller
         ]);
 
         Auth::login($user);
+        dd($user);
 
-        return redirect()->route('home.show');
+
+        return redirect()->route('test.show');
     }
 }
-

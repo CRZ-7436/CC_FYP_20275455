@@ -17,3 +17,7 @@ Route::post('/signup', [AuthController::class, 'register'])->name('signup.regist
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('login.perform');
+
+Route::get('/test', function () {
+    return view('test');
+})->name('test.show');
