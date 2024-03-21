@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -32,8 +33,9 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // Implement your logic for what happens after registration
+        Auth::login($user);
 
-        return redirect()->route('where_to_redirect_after_success');
+        return redirect()->route('home.show');
     }
 }
+
