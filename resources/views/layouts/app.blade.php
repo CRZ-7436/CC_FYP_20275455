@@ -14,6 +14,8 @@
         <nav class="bg-blue-900 text-white py-4">
             <div class="container mx-auto px-4">
                 <a href="/" class="font-bold">Home</a>
+                <a href="{{ route('about.show') }}" class="ml-4">About</a>
+                <a href="{{ route('signup.show') }}" class="ml-4">Register</a>
                 <!-- Add more navigation links here -->
             </div>
         </nav>
