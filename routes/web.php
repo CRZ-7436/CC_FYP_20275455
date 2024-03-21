@@ -1,23 +1,31 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Auth\LoginController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
 Route::get('/', function () {
-    return view('landing');
-})->name('home.show');
+    return view('welcome');
+});
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about.show');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/signup', [AuthController::class, 'showRegistrationForm'])->name('signup.show');
-Route::post('/signup', [AuthController::class, 'register'])->name('signup.register');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.show');
-Route::post('/login', [LoginController::class, 'login'])->name('login.perform');
-
-Route::get('/test', function () {
-    return view('test');
-})->name('test.show');
+require __DIR__.'/auth.php';
