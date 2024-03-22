@@ -13,9 +13,12 @@
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased text-gray-900 bg-gray-100 dark:bg-gray-900">
-    <div class="flex items-center justify-center min-h-screen">
-        <div class="w-full max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+<body class="font-sans antialiased text-gray-900 bg-white">
+    <div class="flex items-center justify-center min-h-screen bg-orange-50">
+        <div class="w-full max-w-md px-6 py-4 bg-white border border-orange-500 shadow-md overflow-hidden sm:rounded-lg">
+            <div class="flex justify-center mb-4">
+                <img src="{{ asset('images/Lambda.png') }}" alt="Logo" class="h-12 w-auto">
+            </div>
             {{ $slot }}
         </div>
     </div>

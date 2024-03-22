@@ -13,17 +13,17 @@
 
                 <!-- Navigation Links for both Authenticated Users and Guests -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="url('/')" :active="request()->is('/')" class="text-gray-800 hover:text-orange-600">
+                    <x-nav-link :href="url('/')" :active="request()->is('/')" class="text-gray-900 hover:text-orange-600">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link :href="url('/about')" :active="request()->is('about')" class="text-gray-800 hover:text-orange-600">
+                    <x-nav-link :href="url('/about')" :active="request()->is('about')" class="text-gray-900 hover:text-orange-600">
                         {{ __('About Us') }}
                     </x-nav-link>
                     @guest
-                        <x-nav-link :href="url('/login')" :active="request()->is('login')" class="text-gray-800 hover:text-orange-600">
+                        <x-nav-link :href="url('/login')" :active="request()->is('login')" class="text-gray-900 hover:text-orange-600">
                             {{ __('Login') }}
                         </x-nav-link>
-                        <x-nav-link :href="url('/register')" :active="request()->is('register')" class="text-gray-800 hover:text-orange-600">
+                        <x-nav-link :href="url('/register')" :active="request()->is('register')" class="text-gray-900 hover:text-orange-600">
                             {{ __('Register') }}
                         </x-nav-link>
                     @endguest
