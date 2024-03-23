@@ -32,6 +32,11 @@
                 @yield('content')
             </div>
         </main>
+
+        <!-- Footer -->
+        <footer class="bg-white text-center text-gray-500 py-4 shadow">
+            @yield('footer')
+        </footer>
     </div>
 </body>
 </html>
