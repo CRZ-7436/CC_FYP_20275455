@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-            <div class="max-w-4xl mx-auto text-centre">
+            <div class="max-w-4xl mx-auto text-left">
                 <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Welcome to Chatbot Central</h1>
                 <p class="text-lg md:text-xl mb-8">Explore our cutting-edge chatbots designed to revolutionize the way you learn and interact with information.</p>
             </div>
     </x-slot>
 
     @section('content')
-    <div class="max-w-4xl mx-auto py-8 px-6">
+    <div class="max-w-7xl mx-auto py-8 px-6">
         <h2 class="text-3xl text-gray-800 font-bold mb-6">Meet Our Chatbots</h2>
         <div class="grid md:grid-cols-3 gap-6">
             <!-- Chatbot 1 -->
@@ -19,13 +19,13 @@
             <!-- Chatbot 2 -->
             <div class="bg-white rounded-lg shadow p-6">
                 <h3 class="text-xl font-semibold mb-4">Chatbot 2: The Code Companion</h3>
-                <p class="text-gray-700">Your coding journey just got easier. Get instant help with coding concepts and debug with ease.</p>
+                <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio aenean sed adipiscing diam. Tristique magna sit amet purus gravida quis blandit turpis. Nunc vel risus commodo viverra maecenas accumsan. Sed odio morbi quis commodo odio aenean. Eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque. Augue mauris augue neque gravida. Egestas erat imperdiet sed euismod nisi porta lorem. Interdum velit laoreet id donec. Bibendum enim facilisis gravida neque convallis a. Urna molestie at elementum eu facilisis. Quam viverra orci sagittis eu volutpat odio facilisis mauris sit. Imperdiet dui accumsan sit amet nulla facilisi.</p>
             </div>
 
             <!-- Chatbot 3 -->
             <div class="bg-white rounded-lg shadow p-6">
                 <h3 class="text-xl font-semibold mb-4">Chatbot 3: The AI Whisperer</h3>
-                <p class="text-gray-700">Explore the frontiers of AI with a bot designed to discuss and dissect the latest in AI advancements.</p>
+                <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio aenean sed adipiscing diam. Tristique magna sit amet purus gravida quis blandit turpis. Nunc vel risus commodo viverra maecenas accumsan. Sed odio morbi quis commodo odio aenean. Eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque. Augue mauris augue neque gravida. Egestas erat imperdiet sed euismod nisi porta lorem. Interdum velit laoreet id donec. Bibendum enim facilisis gravida neque convallis a. Urna molestie at elementum eu facilisis. Quam viverra orci sagittis eu volutpat odio facilisis mauris sit. Imperdiet dui accumsan sit amet nulla facilisi.</p>
             </div>
         </div>
     </div>

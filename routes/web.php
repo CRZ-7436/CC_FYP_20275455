@@ -3,6 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ChatOneController;
+use App\Http\Controllers\ChatTwoController;
+use App\Http\Controllers\ChatThreeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,15 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Home Page
 Route::get('/', function () {
     return view('welcome');
-})->name('home'); // Add a name for easier reference
+})->name('home');
 
 // About Us Page
 Route::get('/about', function () {
     return view('about');
-})->name('about'); // Ensure you have an 'about.blade.php' view
+})->name('about');
 
 // Dashboard - requires authentication
 Route::get('/dashboard', function () {
@@ -36,5 +39,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Include authentication routes provided by Laravel Breeze
 require __DIR__.'/auth.php';
+
+// Route for ChatGPT's API chatbot
+Route::get('/chatbots/chatone', [ChatOneController::class, 'index'])->name('chatone');
+//route ofr handling form submission
+Route::post('/chatone/chat', [ChatOneController::class, 'chat'])->name('chatone.chat');
+
+// Route for chatbot 2
+Route::get('/chatbots/chattwo', [ChatTwoController::class, 'index'])->name('chattwo');
+
+// Route for chatbot 3
+Route::get('/chatbots/chatthree', [ChatThreeController::class, 'index'])->name('chatthree');

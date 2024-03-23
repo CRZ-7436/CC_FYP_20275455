@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-            <div class="max-w-4xl mx-auto text-centre">
+            <div class="max-w-4xl mx-auto text-left">
                 <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">About Our Project</h1>
                 <p class="text-lg md:text-xl mb-8">Diving into the future of education with AI-driven learning experiences for computer science fundamentals.</p>
             </div>
