@@ -1,17 +1,12 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+            <div class="max-w-4xl mx-auto text-centre">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">About Our Project</h1>
+                <p class="text-lg md:text-xl mb-8">Diving into the future of education with AI-driven learning experiences for computer science fundamentals.</p>
+            </div>
+    </x-slot>
 
-@section('title', 'About Our Project')
-
-@section('content')
-    <!-- Hero Section -->
-    <div class="bg-orange-500 text-white py-10 px-6 mb-6 rounded-lg shadow-md">
-        <div class="max-w-7xl mx-auto">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">About Our Project</h1>
-            <p class="text-lg md:text-xl mb-8">Diving into the future of education with AI-driven learning experiences for computer science fundamentals.</p>
-        </div>
-    </div>
-
-    <!-- Project Introduction -->
+    @section('content')
     <div class="py-8 bg-white pb-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 rounded-lg shadow-md px-6">
             <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">About the Project</h2>
@@ -49,11 +44,14 @@
         </div>
     </div>
 
-    <!-- Call to Action -->
-    <div class="bg-orange-500 text-white py-10 text-center mb-6 rounded-lg shadow-md pb-8">
+    @endsection
+
+    @section('footer')
+    <footer class="bg-orange-500 text-white py-10 text-center mt-12">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8">Join Us on This Journey</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Join Us Journey on This</h2>
             <p>Are you ready to explore the future of learning? Whether you're a student eager to learn, a teacher interested in AI, or someone passionate about education technology, we'd love to hear from you.</p>
         </div>
-    </div>
-@endsection
+    </footer>
+    @endsection
+</x-app-layout>
