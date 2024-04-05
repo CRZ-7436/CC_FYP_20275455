@@ -15,7 +15,7 @@ class ChatOneController extends Controller
 
     public function chat(Request $request)
     {
-        $apiKey = 'openai_api_key_here'; // Put OpenAI API key here **************
+        $apiKey = 'API_key'; // Put OpenAI API key here *****************************************
         
         Log::info("Prompt: " . $request->input('prompt'));
     
