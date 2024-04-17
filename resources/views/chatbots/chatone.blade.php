@@ -8,16 +8,15 @@
         <input type="text" name="prompt" placeholder="Ask me anything...">
         <button type="submit">Ask</button>
     </form>
-    @if(isset($error))
-        <div>
-            <p>Error: {{ $error }}</p>
-        </div>
-    @elseif(isset($response['choices']) && count($response['choices']) > 0)
+    @if(isset($response['choices']) && count($response['choices']) > 0)
         <div>
             <p>Response: {{ $response['choices'][0]['text'] }}</p>
         </div>
-    @else
-        <p>No response or an error occurred.</p>
     @endif
+
+    <h2>Chat History</h2>
+    @foreach ($chatHistories as $history)
+        <p><strong>Q:</strong> {{ $history->prompt }} <strong>A:</strong> {{ $history->response }}</p>
+    @endforeach
 </div>
 @endsection
