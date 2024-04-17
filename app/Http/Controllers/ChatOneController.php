@@ -12,8 +12,6 @@ class ChatOneController extends Controller
 {
     /**
      * Display the initial chat page with history.
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -21,16 +19,12 @@ class ChatOneController extends Controller
             return redirect()->route('login')->with('error', 'You must be logged in to view chat history.');
         }
 
-        // Fetch all chat histories for the current user
         $chatHistories = ChatHistory::where('user_id', auth()->id())->latest()->get();
         return view('chatbots.chatone', ['chatHistories' => $chatHistories]);
     }
 
     /**
      * Handle the incoming chat request and log the chat history.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function chat(Request $request)
     {
@@ -50,7 +44,6 @@ class ChatOneController extends Controller
             'temperature' => 0.7,
         ]);
         
-
         if (!$response->successful()) {
             Log::error("OpenAI API Error: " . $response->body());
             return back()->with('error', 'Failed to get response from OpenAI API');
@@ -59,19 +52,42 @@ class ChatOneController extends Controller
         $responseData = $response->json();
         Log::info("API Response: ", $responseData);
 
-        // Store chat in history
+        // Format the response text
+        $formattedResponse = $this->formatResponse($responseData['choices'][0]['text']);
+
+        // Store chat in history with original response text
         ChatHistory::create([
             'user_id' => auth()->id(),
             'prompt' => $userInput,
             'response' => $responseData['choices'][0]['text']
         ]);
 
-        // Refresh chat histories to include the new entry
         $chatHistories = ChatHistory::where('user_id', auth()->id())->latest()->get();
 
         return view('chatbots.chatone', [
-            'response' => $responseData,
+            'response' => $formattedResponse,
             'chatHistories' => $chatHistories
         ]);
+    }
+
+    private function formatResponse($text)
+    {
+        $pattern = '/(\d+\.)\s+/';
+        $sentences = preg_split($pattern, $text, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+        $formatted = [];
+        $index = -1;
+
+        foreach ($sentences as $sentence) {
+            if (preg_match('/\d+\./', $sentence)) {
+                $index++;
+                $formatted[$index] = trim($sentence);
+            } else {
+                if ($index >= 0) {
+                    $formatted[$index] .= ' ' . trim($sentence);
+                }
+            }
+        }
+
+        return array_values($formatted);
     }
 }
