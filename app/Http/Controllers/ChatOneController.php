@@ -10,9 +10,6 @@ use App\Models\ChatHistory;
 
 class ChatOneController extends Controller
 {
-    /**
-     * Display the initial chat page with history.
-     */
     public function index()
     {
         if (!Auth::check()) {
@@ -23,9 +20,6 @@ class ChatOneController extends Controller
         return view('chatbots.chatone', ['chatHistories' => $chatHistories]);
     }
 
-    /**
-     * Handle the incoming chat request and log the chat history.
-     */
     public function chat(Request $request)
     {
         if (!Auth::check()) {
@@ -55,14 +49,12 @@ class ChatOneController extends Controller
         // Format the response text
         $formattedResponse = $this->formatResponse($responseData['choices'][0]['text']);
 
-        // Store chat in history with original response text
         ChatHistory::create([
             'user_id' => auth()->id(),
             'prompt' => $userInput,
-            'response' => $responseData['choices'][0]['text'],
-            'formatted_response' => implode("\n", $formattedResponse)
+            'response' => $responseData['choices'][0]['text'],  // Original response
+            'formatted_response' => implode("\n", $formattedResponse)  // Formatted response
         ]);
-        
 
         $chatHistories = ChatHistory::where('user_id', auth()->id())->latest()->get();
 
@@ -74,22 +66,54 @@ class ChatOneController extends Controller
 
     private function formatResponse($text)
     {
-        $pattern = '/(\d+\.)\s+/';
-        $sentences = preg_split($pattern, $text, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+        $lines = preg_split("/\r\n|\n|\r/", $text);
         $formatted = [];
-        $index = -1;
-
-        foreach ($sentences as $sentence) {
-            if (preg_match('/\d+\./', $sentence)) {
-                $index++;
-                $formatted[$index] = trim($sentence);
-            } else {
-                if ($index >= 0) {
-                    $formatted[$index] .= ' ' . trim($sentence);
+        $codeBlock = false;
+    
+        // Define patterns and their handlers
+        $handlers = [
+            'list' => '/^\d+\.\s+/',
+            'bullet' => '/^[-*]\s+/',
+            'code' => '/```/',
+            'default' => function($line) use (&$formatted, &$codeBlock) {
+                if ($codeBlock) {
+                    $formatted[] = $line;
+                } else {
+                    $formatted[] = trim($line);
                 }
             }
+        ];
+    
+        foreach ($lines as $line) {
+            $line = trim($line);
+            if (empty($line)) continue;
+    
+            $handled = false;
+            foreach ($handlers as $type => $pattern) {
+                if ($type === 'default') continue;
+                if (preg_match($pattern, $line)) {
+                    switch ($type) {
+                        case 'list':
+                        case 'bullet':
+                            $formatted[] = $line;
+                            $handled = true;
+                            break;
+                        case 'code':
+                            $formatted[] = '```';
+                            $codeBlock = !$codeBlock; // Toggle code block state
+                            $handled = true;
+                            break;
+                    }
+                    break; // Stop checking other patterns
+                }
+            }
+    
+            // Handle default case
+            if (!$handled) {
+                $handlers['default']($line);
+            }
         }
-
-        return array_values($formatted);
-    }
-}
+    
+        return $formatted;
+    }    
+}    
