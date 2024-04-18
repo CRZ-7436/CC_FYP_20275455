@@ -17,6 +17,9 @@
     <div class="min-h-screen bg-white">
         @include('layouts.navigation')
 
+        <!-- Static Test Content -->
+        <!--<div>Static Test Content</div>-->
+
         <!-- Page Heading -->
         @if (isset($header))
             <header class="bg-orange-500 text-white shadow">
