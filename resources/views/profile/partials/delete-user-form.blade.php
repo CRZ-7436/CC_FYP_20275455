@@ -1,9 +1,9 @@
-<section class="space-y-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+<section class="space-y-6 bg-white p-6 rounded-lg shadow">
     <header>
-        <h2 class="text-lg font-medium text-orange-600 dark:text-orange-200">
+        <h2 class="text-lg font-medium text-orange-600">
             {{ __('Delete Account') }}
         </h2>
-        <p class="mt-1 text-sm text-gray-700 dark:text-gray-400">
+        <p class="mt-1 text-sm text-orange-800">
             {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
         </p>
     </header>
@@ -19,11 +19,11 @@
             @csrf
             @method('delete')
 
-            <h2 class="text-lg font-medium text-orange-600 dark:text-orange-200">
+            <h2 class="text-lg font-medium text-orange-600">
                 {{ __('Are you sure you want to delete your account?') }}
             </h2>
 
-            <p class="text-sm text-gray-700 dark:text-gray-400">
+            <p class="text-sm text-orange-800">
                 {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
             </p>
 
@@ -33,14 +33,14 @@
                     id="password"
                     name="password"
                     type="password"
-                    class="mt-1 block w-full border-gray-300 dark:border-gray-700 focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50"
+                    class="mt-1 block w-full border-orange-500 focus:border-orange-600 focus:ring focus:ring-orange-500 focus:ring-opacity-50"
                     placeholder="{{ __('Password') }}"
                 />
                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2 text-red-500" />
             </div>
 
             <div class="flex justify-end space-x-3">
-                <x-secondary-button x-on:click="$dispatch('close')" class="border-gray-300 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700">
+                <x-secondary-button x-on:click="$dispatch('close')" class="border-orange-500 text-orange-600 hover:bg-orange-50">
                     {{ __('Cancel') }}
                 </x-secondary-button>
 

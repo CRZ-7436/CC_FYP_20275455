@@ -1,10 +1,9 @@
-<section>
+<section class="bg-white shadow sm:rounded-lg p-6">
     <header>
         <h2 class="text-lg font-medium text-orange-600">
             {{ __('Update Password') }}
         </h2>
-
-        <p class="mt-1 text-sm text-orange-500">
+        <p class="mt-1 text-sm text-orange-800">
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </header>

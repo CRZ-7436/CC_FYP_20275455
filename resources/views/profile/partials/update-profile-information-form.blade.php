@@ -1,10 +1,10 @@
-<section class="bg-white dark:bg-gray-900">
+<section class="bg-white p-6 rounded-lg shadow">
     <header>
-        <h2 class="text-lg font-medium text-orange-600 dark:text-orange-400">
+        <h2 class="text-lg font-medium text-orange-600">
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-800 dark:text-gray-200">
+        <p class="mt-1 text-sm text-orange-800">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
