@@ -10,7 +10,7 @@ class ChatHistory extends Model
     use HasFactory;
 
     // Define which fields can be mass assigned
-    protected $fillable = ['user_id', 'prompt', 'response'];
+    protected $fillable = ['user_id', 'prompt', 'response', 'formatted_response'];
 
     // Relationship with User
     public function user()

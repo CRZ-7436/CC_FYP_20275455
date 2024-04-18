@@ -59,8 +59,10 @@ class ChatOneController extends Controller
         ChatHistory::create([
             'user_id' => auth()->id(),
             'prompt' => $userInput,
-            'response' => $responseData['choices'][0]['text']
+            'response' => $responseData['choices'][0]['text'],
+            'formatted_response' => implode("\n", $formattedResponse)
         ]);
+        
 
         $chatHistories = ChatHistory::where('user_id', auth()->id())->latest()->get();
 
